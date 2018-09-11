@@ -2,6 +2,7 @@ package com.lithium.mineraloil.university;
 
 import com.lithium.mineraloi.university.TimelineController;
 import com.lithium.mineraloi.university.browser.BaseUITest;
+import javafx.animation.Timeline;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -38,4 +39,16 @@ public class TimelineTest extends BaseUITest {
         String filteredHomeTimelineSplit[] = filteredHomeTimeline.split("\n");
         Assertions.assertThat(latestTweet == filteredHomeTimelineSplit[3]);
     }
+
+    @DisplayName("unsuccesful filter by clicking the button")
+    @Test
+    void UnsuccessfulFilterButtonTest() {
+        TimelineController controller = new TimelineController();
+        controller.clickHomeTimelineButton();
+        controller.typeFilterInput("324723974927492");
+        controller.clickFilterButton();
+        String result = controller.getHomeTimelineString();
+        Assertions.assertThat(result == "No tweets available, post a tweet!");
+    }
+
 }
