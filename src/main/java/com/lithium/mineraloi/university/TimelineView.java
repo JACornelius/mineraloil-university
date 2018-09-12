@@ -40,15 +40,15 @@ public class TimelineView {
     }
 
     public BaseElement getHomeTimelineTabElement() {
-        return driver.createBaseElement(By.xpath("//button[@id='homeTimelineTab']"));
+        return driver.createBaseElement(By.xpath("//li[@label='homeTimelineTab']"));
     }
 
     public BaseElement getUserTimelineTabElement() {
-        return driver.createBaseElement(By.xpath("//button[@id='userTimelineTab']"));
+        return driver.createBaseElement(By.xpath("//li[@label='userTimelineTab']"));
     }
 
     public BaseElement getPostTweetTabElement() {
-        return driver.createBaseElement(By.xpath("//button[@id='postTweetTab']"));
+        return driver.createBaseElement(By.xpath("//li[@label='postTweetTab']"));
     }
 
     public TextElement getTweetInputElement() {
