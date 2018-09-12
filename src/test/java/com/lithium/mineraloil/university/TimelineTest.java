@@ -13,6 +13,7 @@ public class TimelineTest extends BaseUITest {
     @Test
     void SuccessfulGetUserTimelineButtonTest() {
         TimelineController controller = new TimelineController();
+        controller.clickUserTimelineTab();
         controller.clickUserTimelineButton();
         Assertions.assertThat(controller.getUserTimelineString()).isNotEmpty();
     }
@@ -21,6 +22,7 @@ public class TimelineTest extends BaseUITest {
     @Test
     void SuccessfulGetHomeTimelineButtonTest() {
         TimelineController controller = new TimelineController();
+        controller.clickHomeTimelineTab();
         controller.clickHomeTimelineButton();
         Assertions.assertThat(controller.getHomeTimelineString()).isNotEmpty();
     }

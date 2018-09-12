@@ -36,6 +36,18 @@ public class TimelineView {
     }
 
     public TextElement getFilterInputElement() {
-        return driver.createTextElement(By.xpath("//input[@class='filter']"));
+        return driver.createTextElement(By.xpath("//input[@class='inputBox']"));
+    }
+
+    public BaseElement getHomeTimelineTabElement() {
+        return driver.createBaseElement(By.xpath("//button[@id='homeTimelineTab']"));
+    }
+
+    public BaseElement getUserTimelineTabElement() {
+        return driver.createBaseElement(By.xpath("//button[@id='userTimelineTab']"));
+    }
+
+    public BaseElement getPostTweetTabElement() {
+        return driver.createBaseElement(By.xpath("//button[@id='postTweetTab']"));
     }
 }

@@ -29,6 +29,12 @@ public class TimelineController {
         view.getFilterButtonElement().click();
     }
 
+    public void clickHomeTimelineTab() { view.getHomeTimelineTabElement().click();}
+
+    public void clickUserTimelineTab() { view.getUserTimelineTabElement().click(); }
+
+    public void clickPostTweetTab() {view.getPostTweetTabElement().click(); }
+
     public void typeFilterInput(String filterInput) {
         view.getFilterInputElement().type(filterInput);
     }
