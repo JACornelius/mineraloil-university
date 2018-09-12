@@ -53,4 +53,32 @@ public class TimelineTest extends BaseUITest {
         Assertions.assertThat(result == "No tweets available, post a tweet!");
     }
 
+    @DisplayName("successful post tweet and is updated in home timeline")
+    @Test
+    void SuccessfulPostTweetToHomeTLTest() {
+        TimelineController controller = new TimelineController();
+        controller.clickPostTweetTab();
+        controller.typeTweetInput("testing tweet input");
+        controller.clickPostTweetButton();
+        controller.clickHomeTimelineTab();
+        controller.clickHomeTimelineButton();
+        String recentHomeTimeline = controller.getHomeTimelineString();
+        String recentHomeTimelineSplit[] =  recentHomeTimeline.split("\n");
+        Assertions.assertThat("testing tweet input" == recentHomeTimelineSplit[3]);
+    }
+
+    @DisplayName("successful post tweet and is updated in user timeline")
+    @Test
+    void SuccessfulPostTweetToUserTLTest() {
+        TimelineController controller = new TimelineController();
+        controller.clickPostTweetTab();
+        controller.typeTweetInput("testing tweet input");
+        controller.clickPostTweetButton();
+        controller.clickUserTimelineTab();
+        controller.clickUserTimelineButton();
+        String recentUserTimeline = controller.getUserTimelineString();
+        String recentUserTimelineSplit[] =  recentUserTimeline.split("\n");
+        Assertions.assertThat("testing tweet input" == recentUserTimelineSplit[3]);
+    }
+
 }

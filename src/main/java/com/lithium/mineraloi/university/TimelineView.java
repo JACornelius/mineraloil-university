@@ -50,4 +50,12 @@ public class TimelineView {
     public BaseElement getPostTweetTabElement() {
         return driver.createBaseElement(By.xpath("//button[@id='postTweetTab']"));
     }
+
+    public TextElement getTweetInputElement() {
+        return driver.createTextElement(By.xpath("//textarea[@id='tweetInput']"));
+    }
+
+    public BaseElement getPostTweetButtonElement() {
+        return driver.createBaseElement(By.xpath("//button[@class='postTweetButton']"));
+    }
 }

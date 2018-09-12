@@ -38,4 +38,12 @@ public class TimelineController {
     public void typeFilterInput(String filterInput) {
         view.getFilterInputElement().type(filterInput);
     }
+
+    public void typeTweetInput(String tweetInput) { view.getTweetInputElement().type(tweetInput); }
+
+    public void clickPostTweetButton() {
+        view.getPostTweetButtonElement().click();
+    }
+
+
 }
