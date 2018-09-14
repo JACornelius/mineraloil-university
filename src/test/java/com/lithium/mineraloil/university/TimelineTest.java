@@ -13,6 +13,7 @@ public class TimelineTest extends BaseUITest {
     @Test
     void SuccessfulGetUserTimelineButtonTest() {
         TimelineController controller = new TimelineController();
+        controller.clickUserTimelineTab();
         controller.clickUserTimelineButton();
         Assertions.assertThat(controller.getUserTimelineString()).isNotEmpty();
     }
@@ -21,6 +22,7 @@ public class TimelineTest extends BaseUITest {
     @Test
     void SuccessfulGetHomeTimelineButtonTest() {
         TimelineController controller = new TimelineController();
+        controller.clickHomeTimelineTab();
         controller.clickHomeTimelineButton();
         Assertions.assertThat(controller.getHomeTimelineString()).isNotEmpty();
     }
@@ -49,6 +51,34 @@ public class TimelineTest extends BaseUITest {
         controller.clickFilterButton();
         String result = controller.getHomeTimelineString();
         Assertions.assertThat(result == "No tweets available, post a tweet!");
+    }
+
+    @DisplayName("successful post tweet and is updated in home timeline")
+    @Test
+    void SuccessfulPostTweetToHomeTLTest() {
+        TimelineController controller = new TimelineController();
+        controller.clickPostTweetTab();
+        controller.typeTweetInput("testing tweet input");
+        controller.clickPostTweetButton();
+        controller.clickHomeTimelineTab();
+        controller.clickHomeTimelineButton();
+        String recentHomeTimeline = controller.getHomeTimelineString();
+        String recentHomeTimelineSplit[] =  recentHomeTimeline.split("\n");
+        Assertions.assertThat("testing tweet input" == recentHomeTimelineSplit[3]);
+    }
+
+    @DisplayName("successful post tweet and is updated in user timeline")
+    @Test
+    void SuccessfulPostTweetToUserTLTest() {
+        TimelineController controller = new TimelineController();
+        controller.clickPostTweetTab();
+        controller.typeTweetInput("testing tweet input");
+        controller.clickPostTweetButton();
+        controller.clickUserTimelineTab();
+        controller.clickUserTimelineButton();
+        String recentUserTimeline = controller.getUserTimelineString();
+        String recentUserTimelineSplit[] =  recentUserTimeline.split("\n");
+        Assertions.assertThat("testing tweet input" == recentUserTimelineSplit[3]);
     }
 
 }

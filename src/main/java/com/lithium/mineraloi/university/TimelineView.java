@@ -36,6 +36,26 @@ public class TimelineView {
     }
 
     public TextElement getFilterInputElement() {
-        return driver.createTextElement(By.xpath("//input[@class='filter']"));
+        return driver.createTextElement(By.xpath("//input[@class='inputBox']"));
+    }
+
+    public BaseElement getHomeTimelineTabElement() {
+        return driver.createBaseElement(By.xpath("//li[@label='homeTimelineTab']"));
+    }
+
+    public BaseElement getUserTimelineTabElement() {
+        return driver.createBaseElement(By.xpath("//li[@label='userTimelineTab']"));
+    }
+
+    public BaseElement getPostTweetTabElement() {
+        return driver.createBaseElement(By.xpath("//li[@label='postTweetTab']"));
+    }
+
+    public TextElement getTweetInputElement() {
+        return driver.createTextElement(By.xpath("//textarea[@id='tweetInput']"));
+    }
+
+    public BaseElement getPostTweetButtonElement() {
+        return driver.createBaseElement(By.xpath("//button[@class='postTweetButton']"));
     }
 }
